@@ -16,7 +16,8 @@
 	"require": {
 		"cakedc/search": "~2.5",
 		"cakephp/cakephp": "~2.7",
-		"friendsofcake/cakepdf": "~1.0"
+		"friendsofcake/cakepdf": "~1.0",
+		"firebase/php-jwt": "~4.0"
 	},
 	"require-dev": {
 		"cakephp/cakephp-codesniffer": "~1.0"
