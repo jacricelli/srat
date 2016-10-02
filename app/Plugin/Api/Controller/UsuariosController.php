@@ -128,7 +128,7 @@ class UsuariosController extends Controller {
 		if ($this->request->is('get')) {
 			$this->_serialize($this->Api->getCargos($this->Auth->user('id')));
 		} else {
-			$data = $this->Api->parseCargosPostRequest($this->request->data);
+			$data = $this->Api->parseCargos($this->request->data);
 			$success = $this->Usuario->Registro->validateMany($data);
 			if ($success) {
 				$data = array_filter($data);
