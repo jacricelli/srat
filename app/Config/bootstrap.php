@@ -79,6 +79,7 @@ Cache::config('default', array(
  * Plugins
  */
 CakePlugin::load(array(
+	'Api' => array('bootstrap' => true, 'routes' => true),
 	'CakePdf' => array('bootstrap' => true, 'routes' => true),
-	'Search'
+	'Search',
 ));
