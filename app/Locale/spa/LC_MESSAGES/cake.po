@@ -61,7 +61,7 @@ msgstr "Se encontró un error al eliminar el registro con id: %2$s"
 
 #: Controller/Component/AuthComponent.php:366
 msgid "You are not authorized to access that location."
-msgstr "No tiene permiso para acceder a este ubicación"
+msgstr "No tiene permiso para acceder a esta ubicación"
 
 #: Error/ExceptionRenderer.php:205
 msgid "Not Found"
