@@ -36,22 +36,24 @@ class Api extends Model {
 		$cargos = array();
 
 		$rows = ClassRegistry::init('Usuario')->getCargos($id);
-		foreach ($rows['Registro'] as $rid => $row) {
-			$token = array(
-				'id' => $row['id'],
-				'tipo' => $row['tipo'],
-				'asignatura_id' => $row['asignatura_id'],
-				'usuario_id' => $row['usuario_id'],
-				'fecha' => $row['fecha']
-			);
+		if (!empty($rows['Registro'])) {
+			foreach ($rows['Registro'] as $rid => $row) {
+				$token = array(
+					'id' => $row['id'],
+					'tipo' => $row['tipo'],
+					'asignatura_id' => $row['asignatura_id'],
+					'usuario_id' => $row['usuario_id'],
+					'fecha' => $row['fecha']
+				);
 
-			$cargos[$rid] = array(
-				'id' => \Firebase\JWT\JWT::encode($token, Configure::read('Security.salt'), 'HS256'),
-				'asignatura' => $rows['Cargo'][$rid]['asignatura'],
-				'entrada' => $row['entrada'],
-				'salida' => $row['salida'],
-				'obs' => $row['obs']
-			);
+				$cargos[$rid] = array(
+					'id' => \Firebase\JWT\JWT::encode($token, Configure::read('Security.salt'), 'HS256'),
+					'asignatura' => $rows['Cargo'][$rid]['asignatura'],
+					'entrada' => $row['entrada'],
+					'salida' => $row['salida'],
+					'obs' => $row['obs']
+				);
+			}
 		}
 
 		return compact('cargos');
