@@ -106,6 +106,41 @@ class UsuariosController extends Controller {
 	}
 
 /**
+ * Gestiona los cargos del usuario en el día de la fecha
+ *
+ * @return void
+ *
+ * @throws NotFoundException Cuando el usuario no existe
+ */
+	public function cargos() {
+		$this->request->allowMethod('get', 'post');
+
+		if (!$this->Usuario->exists($this->Auth->user('id'))) {
+			throw new NotFoundException('El usuario no existe.');
+		}
+
+		if ($this->request->is('get')) {
+			$this->_serialize($this->Api->getCargos($this->Auth->user('id')));
+		} else {
+			$data = $this->Api->parseCargosPostRequest($this->request->data);
+			$success = $this->Usuario->Registro->validateMany($data);
+			if ($success) {
+				$data = array_filter($data);
+				if (!empty($data)) {
+					$success = $this->Usuario->Registro->saveMany($data, array('validate' => false));
+				}
+			}
+
+			$vars = compact('success');
+			if (!empty($this->Usuario->Registro->validationErrors)) {
+				$vars['errors'] = $this->Usuario->Registro->validationErrors;
+			}
+
+			$this->_serialize($vars);
+		}
+	}
+
+/**
  * Método auxiliar para establecer variables para la vista y serializarlas
  *
  * @param array $vars Variables

@@ -16,3 +16,12 @@ Router::connect('/api/token', array(
 	'action' => 'token',
 	'plugin' => 'api'
 ));
+
+/**
+ * Cargos
+ */
+Router::connect('/api/cargos', array(
+	'controller' => 'usuarios',
+	'action' => 'cargos',
+	'plugin' => 'api'
+));
