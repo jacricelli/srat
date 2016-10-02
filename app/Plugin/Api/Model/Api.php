@@ -78,8 +78,17 @@ class Api extends Model {
 					continue;
 				}
 
+				$missing = false;
 				foreach (array('entrada', 'salida', 'obs') as $field) {
+					if (!isset($row[$field])) {
+						$missing = true;
+						break;
+					}
 					$out[$rid][$field] = $row[$field];
+				}
+				if ($missing) {
+					$out[$rid] = array();
+					continue;
 				}
 
 				if (date('Y-m-d') !== date('Y-m-d', strtotime($out[$rid]['fecha']))) {
