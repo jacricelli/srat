@@ -31,7 +31,7 @@ class TokenAuthenticate extends BaseAuthenticate {
  * @var array
  */
 	public $settings = array(
-		'header' => 'Authorization'
+		'header' => 'X-Authorization'
 	);
 
 /**
