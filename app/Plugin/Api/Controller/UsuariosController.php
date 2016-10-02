@@ -40,6 +40,13 @@ class UsuariosController extends Controller {
 	);
 
 /**
+ * Modelos
+ *
+ * @var string
+ */
+	public $uses = array('Api.Api', 'Usuario');
+
+/**
  * Vista
  *
  * @var string
@@ -80,7 +87,6 @@ class UsuariosController extends Controller {
  * @return void
  *
  * @throws NotFoundException Cuando no es posible identificar el usuario o no existe
- *
  */
 	public function token() {
 		$this->request->allowMethod('post');
