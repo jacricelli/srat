@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a295a82d69253538804b8b09cdd320d0",
+    "content-hash": "59bd47608856afd06eec5b8172cd28b8",
     "packages": [
         {
             "name": "aura/intl",
@@ -966,6 +966,48 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2018-01-03T07:37:34+00:00"
+        },
+        {
+            "name": "xavier83ar/cakephp-spanish-inflections",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jacricelli/cakephp-spanish-inflections.git",
+                "reference": "f2001a7ed92944aca6a5eb86b3ecd8d116982aee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jacricelli/cakephp-spanish-inflections/zipball/f2001a7ed92944aca6a5eb86b3ecd8d116982aee",
+                "reference": "f2001a7ed92944aca6a5eb86b3ecd8d116982aee",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "SpanishInflections\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "SpanishInflections\\Test\\": "tests",
+                    "Cake\\Test\\": "./vendor/cakephp/cakephp/tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Spanish Inflections plugin for CakePHP",
+            "support": {
+                "source": "https://github.com/jacricelli/cakephp-spanish-inflections/tree/1.0.6"
+            },
+            "time": "2018-01-17T04:17:48+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
