@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -91,5 +92,20 @@ class UsuariosTable extends Table
         $rules->add($rules->isUnique(['legajo']));
 
         return $rules;
+    }
+
+    /**
+     * Devuelve la consulta a usar por el componente Auth para buscar el registro de un usuario
+     *
+     * @param \Cake\ORM\Query $query Consulta
+     * @param array $options Opciones
+     *
+     * @return \Cake\ORM\Query
+     */
+    public function findAuth(Query $query, array $options)
+    {
+        return $query->where([
+            $this->aliasField('habilitado') => true
+        ]);
     }
 }

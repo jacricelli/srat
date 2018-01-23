@@ -27,7 +27,6 @@ use Cake\Event\Event;
  */
 class AppController extends Controller
 {
-
     /**
      * Initialization hook method.
      *
@@ -43,12 +42,33 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'legajo'],
+                    'finder' => 'auth',
+                    'userModel' => 'Usuarios'
+                ]
+            ],
+            'flash' => ['element' => 'error'],
+            'loginAction' => ['_name' => 'login'],
+            'loginRedirect' => ['_name' => 'dashboard'],
+            'logoutRedirect' => ['_name' => 'login'],
+            'unauthorizedRedirect' => ['_name' => 'dashboard']
+        ]);
+    }
 
-        /*
-         * Enable the following components for recommended CakePHP security settings.
-         * see https://book.cakephp.org/3.0/en/controllers/components/security.html
-         */
-        //$this->loadComponent('Security');
-        //$this->loadComponent('Csrf');
+    /**
+     * beforeFilter
+     *
+     * @param \Cake\Event\Event $event Evento
+     *
+     * @return void|\Cake\Network\Response
+     */
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->response->withDisabledCache();
     }
 }
