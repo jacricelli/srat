@@ -1,23 +1,22 @@
 <?php
 namespace App\Model\Entity;
 
-use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
- * Usuario
+ * Usuario Entity
  *
  * @property int $id
+ * @property bool $admin
  * @property int $legajo
  * @property string $password
  * @property bool $habilitado
  * @property string $apellido
  * @property string $nombre
- * @property \Cake\I18n\FrozenTime $created
- * @property \Cake\I18n\FrozenTime $modified
  */
 class Usuario extends Entity
 {
+
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -28,6 +27,7 @@ class Usuario extends Entity
      * @var array
      */
     protected $_accessible = [
+        'admin' => true,
         'legajo' => true,
         'password' => true,
         'habilitado' => true,
@@ -43,18 +43,4 @@ class Usuario extends Entity
     protected $_hidden = [
         'password'
     ];
-
-    /**
-     * Genera el hash de la contraseña
-     *
-     * @param string $password Contraseña
-     *
-     * @return bool|string El hash de la contraseña
-     */
-    protected function _setPassword($password)
-    {
-        if (strlen($password) > 0) {
-            return (new DefaultPasswordHasher)->hash($password);
-        }
-    }
 }

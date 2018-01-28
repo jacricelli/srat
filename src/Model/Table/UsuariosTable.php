@@ -7,7 +7,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Usuarios
+ * Usuarios Model
  *
  * @method \App\Model\Entity\Usuario get($primaryKey, $options = [])
  * @method \App\Model\Entity\Usuario newEntity($data = null, array $options = [])
@@ -16,11 +16,10 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Usuario patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Usuario[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Usuario findOrCreate($search, callable $callback = null, $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class UsuariosTable extends Table
 {
+
     /**
      * Initialize method
      *
@@ -47,6 +46,11 @@ class UsuariosTable extends Table
         $validator
             ->integer('id')
             ->allowEmpty('id', 'create');
+
+        $validator
+            ->boolean('admin')
+            ->requirePresence('admin', 'create')
+            ->notEmpty('admin');
 
         $validator
             ->integer('legajo')

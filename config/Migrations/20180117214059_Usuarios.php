@@ -17,10 +17,12 @@ class Usuarios extends AbstractMigration
     public function up()
     {
         $table = $this->table('usuarios', [
+            'collation' => 'utf8_unicode_ci',
             'id' => false,
             'primary_key' => ['id']
         ]);
         $table->addColumn('id', 'integer', ['identity' => true, 'signed' => false])
+            ->addColumn('admin', 'boolean', ['default' => false, 'signed' => false])
             ->addColumn('legajo', 'integer', ['length' => MysqlAdapter::INT_MEDIUM, 'signed' => false])
             ->addColumn('password', 'char', ['length' => 60])
             ->addColumn('habilitado', 'boolean', ['default' => true, 'signed' => false])
@@ -32,6 +34,7 @@ class Usuarios extends AbstractMigration
 
         $usuarios = TableRegistry::get('usuarios');
         $entidad = $usuarios->newEntity([
+            'admin' => true,
             'legajo' => 1,
             'password' => 'admin',
             'habilitado' => true,
