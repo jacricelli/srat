@@ -28,8 +28,8 @@ class Usuarios extends AbstractMigration
             ->addColumn('habilitado', 'boolean', ['default' => true, 'signed' => false])
             ->addColumn('apellido', 'string', ['length' => 30])
             ->addColumn('nombre', 'string', ['length' => 40])
-            ->addIndex(['legajo'], ['unique' => true, 'name' => 'uk_legajo'])
-            ->addIndex(['legajo', 'habilitado'], ['name' => 'ik_legajo'])
+            ->addIndex(['legajo'], ['unique' => true])
+            ->addIndex(['legajo', 'habilitado'])
             ->create();
 
         $usuarios = TableRegistry::get('usuarios');
