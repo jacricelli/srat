@@ -32,7 +32,7 @@ class Usuarios extends AbstractMigration
             ->addIndex(['legajo', 'habilitado'])
             ->create();
 
-        $usuarios = TableRegistry::get('usuarios');
+        $usuarios = TableRegistry::get('Usuarios');
         $entidad = $usuarios->newEntity([
             'admin' => true,
             'legajo' => 1,
