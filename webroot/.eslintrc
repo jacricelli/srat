@@ -1,0 +1,8 @@
+{
+  "env": {
+	"browser": true,
+	"jquery": true
+  },
+  "extends": "./node_modules/eslint-config-jquery/.eslintrc.json",
+  "root": true
+}

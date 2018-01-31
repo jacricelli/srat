@@ -38,6 +38,8 @@ nbproject/*
 .vscode
 # Sass preprocessor
 .sass-cache/
+# NPM
+webroot/node_modules/*
 
 # SRAT 1.x #
 ############
