@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Ciclos Model
  *
+ * @property \App\Model\Table\CalendariosTable|\Cake\ORM\Association\HasMany $Calendarios
+ *
  * @method \App\Model\Entity\Ciclo get($primaryKey, $options = [])
  * @method \App\Model\Entity\Ciclo newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\Ciclo[] newEntities(array $data, array $options = [])
@@ -33,6 +35,10 @@ class CiclosTable extends Table
         $this->setTable('ciclos');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Calendarios', [
+            'foreignKey' => 'ciclo_id'
+        ]);
     }
 
     /**

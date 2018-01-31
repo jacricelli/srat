@@ -10,6 +10,8 @@ use Cake\ORM\Entity;
  * @property int $anio
  * @property \Cake\I18n\FrozenDate $inicio
  * @property \Cake\I18n\FrozenDate $fin
+ *
+ * @property \App\Model\Entity\Calendario[] $calendarios
  */
 class Ciclo extends Entity
 {
@@ -26,6 +28,7 @@ class Ciclo extends Entity
     protected $_accessible = [
         'anio' => true,
         'inicio' => true,
-        'fin' => true
+        'fin' => true,
+        'calendarios' => true
     ];
 }
