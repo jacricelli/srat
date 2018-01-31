@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * AsignaturaNiveles Model
  *
+ * @property \App\Model\Table\AsignaturasTable|\Cake\ORM\Association\HasMany $Asignaturas
+ *
  * @method \App\Model\Entity\AsignaturaNivel get($primaryKey, $options = [])
  * @method \App\Model\Entity\AsignaturaNivel newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\AsignaturaNivel[] newEntities(array $data, array $options = [])
@@ -33,6 +35,10 @@ class AsignaturaNivelesTable extends Table
         $this->setTable('asignatura_niveles');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Asignaturas', [
+            'foreignKey' => 'asignatura_nivel_id'
+        ]);
     }
 
     /**
