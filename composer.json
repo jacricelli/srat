@@ -13,6 +13,7 @@
         "cakephp/plugin-installer": "^1.0",
         "josegonzalez/dotenv": "2.*",
         "mobiledetect/mobiledetectlib": "2.*",
+        "wyrihaximus/twig-view": "^4.3",
         "xavier83ar/cakephp-spanish-inflections": "1.*"
     },
     "require-dev": {

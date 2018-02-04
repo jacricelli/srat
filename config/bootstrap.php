@@ -204,8 +204,10 @@ Type::build('timestamp')
  *
  * Plugin::loadAll(); // Loads all plugins at once
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
- *
  */
+Plugin::load('WyriHaximus/TwigView', [
+    'bootstrap' => true,
+]);
 
 /*
  * Only try to load DebugKit in development mode
