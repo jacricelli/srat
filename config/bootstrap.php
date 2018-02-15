@@ -205,11 +205,10 @@ Type::build('timestamp')
  * Plugin::loadAll(); // Loads all plugins at once
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  */
-Plugin::load('SpanishInflections', [
-    'bootstrap' => true,
-]);
-Plugin::load('WyriHaximus/TwigView', [
-    'bootstrap' => true,
+Plugin::load([
+    'SpanishInflections' => ['bootstrap' => true],
+    'WyriHaximus/TwigView' => ['bootstrap' => true],
+    'BootstrapUI'
 ]);
 
 /*
