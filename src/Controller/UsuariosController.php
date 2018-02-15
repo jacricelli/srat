@@ -42,7 +42,7 @@ class UsuariosController extends AppController
 
                 return $this->redirect($this->Auth->redirectUrl());
             } else {
-                $this->Flash->error(__('Username or password is incorrect'));
+                $this->Flash->error(__('Los datos ingresados no son correctos'));
             }
         }
 
