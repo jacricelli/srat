@@ -71,4 +71,21 @@ class AppController extends Controller
 
         $this->response->withDisabledCache();
     }
+
+    /**
+     * beforeRender
+     *
+     * @param \Cake\Event\Event $event Evento
+     *
+     * @return \Cake\Http\Response|null|void
+     */
+    public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+
+        $user = $this->Auth->user();
+        if ($user) {
+            $this->set(compact('user'));
+        }
+    }
 }
